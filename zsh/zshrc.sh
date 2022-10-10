@@ -8,10 +8,11 @@ source ~/dotfiles/zsh/plugins/fixls.zsh
 
 chpwd() ls
 
+alias v="vim --servername VIM --remote"
 
 autoload -U compinit && compinit
 
-source ~/dotfiles/zsh/plugins/zsh-vi-mode.plugin.zsh
+# source ~/dotfiles/zsh/plugins/zsh-vi-mode.plugin.zsh
 source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/dotfiles/env-vars.env

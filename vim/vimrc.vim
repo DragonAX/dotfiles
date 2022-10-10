@@ -34,6 +34,20 @@
 	" Markup
 		inoremap <leader>< <esc>I<<esc>A><esc>yypa/<esc>O<tab>
 
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" Bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " File and Window Management
 	inoremap <leader>w <Esc>:w<CR>
@@ -77,3 +91,16 @@
 " Fix for: https://github.com/fatih/vim-go/issues/1509
 
 filetype plugin indent on
+
+" Pretty stuff
+if (has("termguicolors"))
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+set background=light
+" set t_Co=256
+colorscheme toast
+
+" netrw file browser stuff
+let g:netrw_keepdir = 1
